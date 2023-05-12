@@ -1,0 +1,37 @@
+<%= form_with(model: @contact, local: true) do |form| %>
+
+<%if @contact.errors.any?%>
+<!--
+@contactがerrorsとany?を呼び出している
+テキスト→パラムス→@contact
+errors :=contactのエラー情報を取得
+any? :=contactにエラーがあればtrueを返す。
+ -->
+  <div id = "error_explanation">
+  <h2>空欄またはcontentが140字を超えています</h2>
+  <% end %>
+
+
+<ul>
+<p>
+<%= form.label :name%>
+</p>
+<%= form.text_field :name%>
+</p>
+<p>
+<%= form.label :email%>
+</p>
+<p>
+<%= form.text_field :email%>
+</p>
+<p>
+<%= form.label :content%>
+</p>
+<p>
+<%= form.text_field :content%>
+</p>
+
+
+<%= form.submit %>
+<% end %>
+
